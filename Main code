@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Crombo | BUtter Days</title>
+
+    <!-- CSS SECTION -->
+    <style>
+
+        /* GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F3EC;
+            color: #493323;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #E9D9C7;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #593B29;
+        }
+
+        /* PRODUCT DETAIL */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            padding: 20px 8% 50px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .product-info h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+            color: #805437;
+        }
+
+        /* BUTTONS */
+        button {
+            cursor: pointer;
+        }
+
+        .add-cart {
+            width: 100%;
+            padding: 15px;
+            background-color: #68452F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* PRODUCT SUGGESTIONS */
+        .suggestions {
+            padding: 45px 8%;
+        }
+
+        .product-list {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .suggestion-card {
+            flex: 0 0 240px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .suggestion-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<!-- HTML SECTION -->
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">BUtter Days.</div>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+        </div>
+
+        <div class="cart">
+            Cart (<span id="cart-count">0</span>)
+        </div>
+    </nav>
+
+
+    <!-- PRODUCT DETAIL -->
+    <section class="product-detail">
+
+        <div class="product-image">
+            <img src="fruit-crombo.jpg" alt="Fruit Crombo">
+        </div>
+
+        <div class="product-info">
+
+            <h1>Fruit Crombo</h1>
+
+            <p class="price">Rp25.000,00</p>
+
+            <button onclick="toggleFavorite()">
+                ♡ Add to Favorite
+            </button>
+
+            <button onclick="shareProduct()">
+                Share
+            </button>
+
+            <button class="add-cart" onclick="addToCart()">
+                Add to Cart
+            </button>
+
+            <h3>Product Description</h3>
+
+            <p>
+                A cromboloni pastry combined with various fruits,
+                especially berries. Crunchy on the outside and
+                soft on the inside, with premium butter flavor
+                and a sweet and tangy fruit sensation.
+            </p>
+
+            <h3>Serving Instructions</h3>
+
+            <p>
+                Ready to eat. Store in the refrigerator for up
+                to 3 days. Reheat using a microwave or air fryer.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT SUGGESTIONS -->
+    <section class="suggestions">
+
+        <h2>You May Also Like</h2>
+
+        <div class="product-list">
+
+            <div class="suggestion-card">
+                <img src="basic-crombo.jpg" alt="Basic Crombo">
+                <h3>Basic Crombo</h3>
+                <p>Rp18.000,00</p>
+            </div>
+
+            <div class="suggestion-card">
+                <img src="butter-croissant.jpg" alt="Butter Croissant">
+                <h3>Butter Croissant</h3>
+                <p>Rp18.000,00</p>
+            </div>
+
+            <div class="suggestion-card">
+                <img src="choco-croissant.jpg" alt="Choco Croissant">
+                <h3>Choco Croissant</h3>
+                <p>Rp23.000,00</p>
+            </div>
+
+            <div class="suggestion-card">
+                <img src="croissant-cream.jpg" alt="Croissant Cream">
+                <h3>Croissant Cream</h3>
+                <p>Rp27.000,00</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT SECTION -->
+    <script>
+
+        function toggleFavorite() {
+            alert("Added to Favorite!");
+        }
+
+        function shareProduct() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Product link copied!");
+        }
+
+        let cartCount = 0;
+
+        function addToCart() {
+            cartCount++;
+
+            document.getElementById("cart-count").innerText = cartCount;
+
+            alert("Fruit Crombo added to cart!");
+        }
+
+    </script>
+
+</body>
+</html>
